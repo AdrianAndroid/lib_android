@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.protobuf'
+
+android {
+    flavorDimensions "default"
+    signingConfigs {
+
+        samplerelease {
+            keyAlias 'tencentmars'
+            keyPassword 'android'
+            storeFile rootProject.file('app/release.jks')
+            storePassword 'android'
+        }
+    }
+
+    compileSdkVersion 26
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId 'com.tencent.mars.sample'
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName '1.0.0'
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    sourceSets {
+        main {
+            proto {
+                srcDir "src/main/proto"
+            }
+            java {
+                srcDir 'src/main/java'
+            }
+
+            res {
+                srcDir 'src/main/res'
+            }
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    productFlavors {
+        MarsSample {
+            proguardFile rootProject.file('app/proguard-rules.pro')
+            signingConfig signingConfigs.samplerelease
+            targetSdkVersion 23
+            minSdkVersion 16
+            versionCode 1
+            versionName '1.0.0'
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        // You still need protoc like in the non-Android case
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    plugins {
+        javalite {
+            // The codegen for lite comes as a separate artifact
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                // In most cases you don't need the full Java output
+                // if you use the lite output.
+                remove java
+            }
+            task.plugins {
+                javalite { }
+            }
+        }
+    }
+}
+
+ext {
+    useLocalMarsWrapper = true // Changed to true is better for sample development.
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    if (useLocalMarsWrapper) {
+        api project(':wrapper')
+
+    } else {
+        implementation "com.tencent.mars:mars-wrapper:${WRAPPER_VERSION_NAME}"
+    }
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.tencent.mars:mars-core:${VERSION_NAME}"
+
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test:rules:0.5'
+}

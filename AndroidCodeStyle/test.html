@@ -1,0 +1,301 @@
+<h1 id="releasenotes">Release notes</h1>
+
+<h1 id="athena">Athena</h1>
+
+<h2 id="releasenote">ReleaseNote</h2>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text211320190528"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.13</code>  (2019-05-28)</h3>
+
+<ul>
+<li>更新crashreportsdk版本号</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text211220190528"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.12</code>  (2019-05-28)</h3>
+
+<ul>
+<li>修复Klog潜在的崩溃</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text211120190524"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.11</code>  (2019-05-24)</h3>
+
+<ul>
+<li>修复代码检测在某些module上面无法正常进行kotlin文件检测的bug</li>
+
+<li>crash中间件默认不开主线程堆栈收集</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text211020190521"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.10</code>  (2019-05-21)</h3>
+
+<ul>
+<li>KLog提供flushblocking接口</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text21920190515"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.9</code>  (2019-05-15)</h3>
+
+<ul>
+<li>KLog去掉对kotlin-reflect的依赖</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text21820190514"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.8</code>  (2019-05-14)</h3>
+
+<ul>
+<li>kotlin不检查多个空行</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text21620190505"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.6</code>  (2019-05-05)</h3>
+
+<ul>
+<li>fix athenaLint issues： 
+
+
+<ul>
+<li>kotlin文件检查去掉ParameterListWrappingRule </li>
+
+<li>fix kotlin formatting bug </li>
+
+<li>fix run athenaLint task from toolwindow</li></ul>
+</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text21520190425"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.5</code>  (2019-04-25)</h3>
+
+<ul>
+<li>修复IMessageHandler持有target回收后造成崩溃的bug</li>
+
+<li>KLog保留arm64-v8a的so打包到aar中</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text21320190422"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.1.3</code>  (2019-04-22)</h3>
+
+<ul>
+<li>proto协议优化</li>
+
+<li>KLog增加方法fun e()</li>
+
+<li>athenaLint alwaysrun字段在服务端也有效(jenkins)--没有打开阻断的情况下，如果checkstyle有问题可以中断编译</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text201820190412"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.18</code>  (2019-04-12)</h3>
+
+<ul>
+<li>athenaLint优化--统一filefilter</li>
+
+<li>增加ipc库</li>
+
+<li>增加kconfig</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text201720190329"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.17</code>  (2019-03-29)</h3>
+
+<ul>
+<li><p>athenaLint增加property alwaysrun</p>
+
+<pre><code>athenaLint{
+    /**
+     * 是否需要进行增量静态检测，默认是增量
+     */
+    increment = true<pre><code>/**
+ * 是否在本地build的时候进行代码检测, 默认为false
+ */
+alwaysrun = true
+</code></pre>}
+</code></pre></li>
+
+<li><p>gradle兼容性问题--在windows下，会kotlin会强制全量检查，java无影响</p></li>
+
+<li><p>tips</p>
+
+<ul>
+<li><p>请使用命令行</p>
+
+<pre><code>./gradlew athenaLint --continue
+./gradlew athenaKotlinFormatting --continue
+
+./gradlew :modulename:athenaLint
+</code></pre></li>
+
+<li><p>本地查看checkstyle文件，请先在文件浏览器中找到checkstyle.html,再用浏览器打开</p></li></ul></li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text201420190325"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.14</code>  (2019-03-25)</h3>
+
+<ul>
+<li>修复代码规范工具非必现的bug-athena lint插件执行git log命令</li>
+
+<li>athena lint插件暂时去掉对注释'//'前后空格的检测</li>
+
+<li>日志规避使用$$符号</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text201120190325"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.11</code>  (2019-03-25)</h3>
+
+<ul>
+<li>更新代码规范工具-athena lint插件</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text20620190319"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.6</code>  (2019-03-19)</h3>
+
+<ul>
+<li>文件下载支持无进度</li>
+
+<li>http 扩展函数替换</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text20520190311"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.5</code>  (2019-03-11)</h3>
+
+<ul>
+<li>增加pom 日志</li>
+
+<li>修复KLog在某些条件下存在时间不对的bug -- 空队列时采用ReentrantLock&amp;&amp;Condition方案代替原来的Sleep()方案。</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text20420190306"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.4</code>  (2019-03-06)</h3>
+
+<ul>
+<li>删除权限"android.permission.CHANGE<em>WIFI</em>MULTICAST_STATE"， 避免Google Play会警告；</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text20320190306"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.3</code>  (2019-03-06)</h3>
+
+<ul>
+<li>crash id策略：如果业务没传crash guid，则用sdk默认的</li>
+
+<li>修复新应用启动崩溃不上报崩溃的bug</li>
+
+<li>升级crashsdk版本</li>
+
+<li>修复文件下载 继续下载功能</li>
+
+<li>init初始化插件支持module代码插入</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text20220190228"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>2.0.2</code>  (2019-02-28)</h3>
+
+<ul>
+<li><code>重点~~~~~~api module新方案，优化编译速度(速度提升17%)</code> <a href="https://code.yy.com/liaodongming/image-container/blob/master/ldm/athena2/athena%202.0%20,build%20time%20improve-%E5%9F%BA%E4%BA%8Ehamo.md">测试结果</a></li>
+
+<li>klog flush 支持异步回调</li>
+
+<li>新增init初始化库</li>
+
+<li>增加utils-mini模块</li>
+
+<li>Components拆分为components-pure 和 components-rx</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text142520190128"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.25</code>  (2019-01-28)</h3>
+
+<ul>
+<li>hiido 库改为compileJointlyOnly 依赖 让外部指定版本</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text142420190121"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.24</code>  (2019-01-21)</h3>
+
+<ul>
+<li>修复某些设备因为裁剪rom导致Locale.English缺失而产生的崩溃
+
+
+<ul>
+<li>samsung SM-G130H   Android 4.4.2</li>
+
+<li>samsung SM-G313HZ  Android 4.4.2</li>
+
+<li>samsung SM-G130HN  Android 4.4.2</li></ul>
+</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text142320190117"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.23</code>  (2019-01-17)</h3>
+
+<ul>
+<li>修复sly 消息内存泄漏bug</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text142220190108"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.22</code>  (2019-01-08)</h3>
+
+<ul>
+<li>图片库开放初始化接口</li>
+
+<li>Utils重构--基于github高赞Util库-AndroidUtilCode</li>
+
+<li>提高写日志线程优先级,增加flush方法线程锁</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text142120181218"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.21</code>  (2018-12-18)</h3>
+
+<ul>
+<li>修复主线程写日志 jni层偶发anr</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text142020181206"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.20</code>  (2018-12-06)</h3>
+
+<ul>
+<li>修改获取klog文件列表,将非klog日志文件排到最后（修复：如果log文件夹里面有别的非log文件会出错）</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text141920181205"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.19</code>  (2018-12-05)</h3>
+
+<ul>
+<li>默认日志上报时打上log</li>
+
+<li>klog文件添加进程名</li>
+
+<li>athena增加Coroutines的proguard-rules-修复coroutines proguard导致的crash</li>
+
+<li>文件传输 在重复执行同个任务时 将错误日志提示修改为失败回调</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text141720181129"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.17</code>  (2018-11-29)</h3>
+
+<ul>
+<li>修复sly子类收不到父类mesagebinding进行绑定的消息</li>
+
+<li>http 添加读写超时接口</li>
+
+<li>修复logLevel singleLogMaxSize再logConfig apply后不能再次设置bug</li>
+
+<li>升级room 版本为1.1.1</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text141120181116"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.11</code>  (2018-11-16)</h3>
+
+<ul>
+<li>增加本地libs的jar/aar发布功能 (第三方登录中微博和line需要依赖aar)</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text14920181114"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.9</code>  (2018-11-14)</h3>
+
+<ul>
+<li>> 修复Crash上传日志的bug--修复klog的排序 （重要）</li>
+
+<li>klog 多进程乱码 bug fix</li>
+
+<li>Fix LogService可能存在的NPE</li>
+
+<li>Fix AppConfig引起的kotlin.UninitializedPropertyAccessException</li>
+
+<li>增加activity/fragment Bundle注解注入功能</li>
+
+<li>图片库对低端机进行优化不符合业务放的需求, 去除对低端机的处理，让各业务放自行处理</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text14720181031"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.7</code>  (2018-10-31)</h3>
+
+<ul>
+<li>glide 图片复用崩溃</li>
+
+<li>kotlin http扩展函数</li>
+
+<li>glide 升级版本4.8.0  4.5.0 BitmapPool复用释放的Bitmap导致崩溃</li>
+
+<li>http 下载进度修复</li>
+
+<li>http 添加直接访问接口 非注解调用</li>
+</ul>
+
+<h3 id="c5f015httpsplaceholdit15c5f015000000text14620181025"><img src="https://placehold.it/15/c5f015/000000?text=+" alt="#c5f015" /> <code>1.4.6</code>  (2018-10-25)</h3>
+
+<ul>
+<li>修复fileutil存在的npe</li>
+
+<li>修复超过100m 删除最新日志bug</li>
+</ul>

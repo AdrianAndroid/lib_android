@@ -1,0 +1,125 @@
+file_filter=wendu/dsbridge
+file_filter=com/wairead/book/readerengine
+file_filter=net/lucode/hackware
+file_filter=com/pierfrancescosoffritti/androidyoutubeplayer
+file_filter=/proto/nano/
+# hago ignore
+file_filter=com/yy/hiyo/proto
+file_filter=protobuf/src/main/java_proto
+# yylite ignore
+file_filter=cn/hikyson/godeye
+file_filter=com/squareup/haha/perflib
+file_filter=cn/hikyson/godeye/monitor
+file_filter=cn/hikyson/godeye/core
+file_filter=cn/hikyson/android/godeye
+# lulubox - lib
+file_filter=/android/app/
+file_filter=/android/content/
+file_filter=/android/location/
+file_filter=/android/util
+file_filter=/com/lody/virtual/
+file_filter=/com/xxx/unreal/
+file_filter=/main/java/mirror/
+file_filter=cn/hikyson/android/godeye
+# lulubox - lody_sample
+file_filter=/lody_sample/
+# lulubox - xposed_api
+file_filter=/xposed_api/
+file_filter=/protocol/nano/
+# lulubox - epic-lib
+file_filter=/de/robv/android/xposed/
+file_filter=/me/weishu/epic/art/
+file_filter=/com/taobao/android/dexposed/
+# biugo
+file_filter=/com/handmark/pulltorefresh/library/
+# mango - communicate with js
+file_filter=mango/browser/entity/FreshVideoMetaModel
+# yyent
+file_filter=/com/yy/mobile/hardwareencoder/core
+file_filter=/com/yymobile/core/user/UserInfo
+file_filter=/com/yy/mobile/channelpk/coremodule/core/prophet/ProphetProtocol
+file_filter=/src/androidTest/java/test/
+file_filter=com/lib_zxing
+file_filter=pl/droidsonroids/gif
+file_filter=com/handmark/pulltorefresh/library
+file_filter=com/yymobile/core/pay/PayUtils
+file_filter=com/yy/mobile/ui/turntable/info/TurnTableEntryInfo
+file_filter=com/yy/mobile/channelpk/coremodule/core/ChannelPKProtocol
+file_filter=com/yy/mobile/channelpk/coremodule/model/ChannelPkNotifyInfo
+file_filter=com/yy/mobile/ui/widget/horizontallist/AbsHListView
+file_filter=com/scwang/smartrefresh/layout
+file_filter=com/yy/mobile/ui/widget/horizontallist/HListView
+file_filter=com/yy/mobile/ui/widget/horizontallist/AdapterView
+file_filter=com/yy/mobile/util/test/ImageProvider
+file_filter=com/duowan/yylove/protocol/nano/Yyfriendstemplateservice
+file_filter=com/hummer/im/_internals/proto
+file_filter=com/hummer/rts/_internals/proto
+file_filter=com/yy/cim/_internals/proto
+file_filter=com/yanzhenjie/permission
+file_filter=com/yy/mobile/ui/widget/swipeloadingview/YYScroller
+# athena release 暂时过滤, debug later
+file_filter=tv/athena/plugin
+file_filter=tv/athena/plugins
+file_filter=tv/athena/annotation
+file_filter=tv/athena/compiler
+file_filter=build-api/riki
+file_filter=build/generated
+file_filter=tv/athena/util/common
+# flashdog
+file_filter=andhook/lib
+file_filter=io/virtualapp
+file_filter=com/yy/permission/sdk
+# test
+file_filter=/src/androidTest/
+file_filter=/src/test/
+# cim
+file_filter=com/hummer/im/signal/_internals/proto
+file_filter=com/hummer/im/rtm/_internals/proto
+file_filter=com/hummer/rtm/_internals/proto
+file_filter=com/hummer/_internals/proto
+# service
+file_filter=com/yy/igame/index/pojo/proto
+file_filter=/src/generated/debug/javalite
+file_filter=com/yy/platform/loginlite/proto
+file_filter=stmobile_api_android/src/main/java
+file_filter=com/woohoo/app/common/protocol/nano
+file_filter=com/yy/glide
+file_filter=build/tmp
+# small
+file_filter=com/yy/android/small/plugin/PluginParser
+file_filter=com/yy/android/small/util/ReflectAccelerator
+# others
+file_filter=com/bi/musicstore/music/ZCOMM
+file_filter=com/gourd/overseaads/bean
+# remo
+file_filter=com/remo/note/domain/pb
+# vfly
+file_filter=com/ai/fly/base/wup
+file_filter=com/ai/fly/base/wup/VF
+# build kapt
+file_filter=app/build/tmp
+# audioenginesdk  是webrtc里的一些demo
+file_filter=audioenginesdk/audiosdk/audioengine/test/android
+# marki-android
+file_filter=com/ai/marki/common/api/wup
+# cronet-lib
+file_filter=cronet_lib/src/main/cpp
+# dreamerchannel
+file_filter=com/yy/mobile/plugin/dreamerchannel/nano
+file_filter=com/yy/mobile/nano
+# openvpn
+file_filter=de/blinkt/openvpn
+file_filter=net/openvpn/ovpn3
+
+# findyou
+file_filter=com/yy/spf/proto
+file_filter=com/yy/spf/proto/dynamic
+
+# reven
+file_filter=com/yy/mobile/framework/revenuesdk
+# riskcontrol
+file_filter=com/platform/riskcontrol
+# pushsdk
+file_filter=com/yy/pushsvc
+# svgaplayer-android
+file_filter=com/opensource/svgaplayer

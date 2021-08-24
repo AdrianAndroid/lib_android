@@ -1,0 +1,367 @@
+[
+  {
+    "component": "utils",
+    "api": [
+      "utils"
+    ]
+  },
+  {
+    "component": "bridge",
+    "api": [
+      "annotation",
+      "core"
+    ]
+  },
+  {
+    "component": "klog",
+    "api": [
+      "klog-api"
+    ],
+    "runtimeOnly": [
+      "klog"
+    ]
+  },
+  {
+    "component": "httpadapter-rxjava2",
+    "api": [
+      "httpadapter-rxjava2",
+      "basehttp-api"
+    ],
+    "runtimeOnly": [
+      "http"
+    ]
+  },
+  {
+    "component": "http",
+    "api": [
+      "basehttp-api"
+    ],
+    "runtimeOnly": [
+      "http"
+    ]
+  },
+  {
+    "component": "service",
+    "api": [
+      "service-api"
+    ],
+    "runtimeOnly": [
+      "service"
+    ]
+  },
+  {
+    "component": "auth",
+    "api": [
+      "auth-api"
+    ],
+    "runtimeOnly": [
+      "auth"
+    ]
+  },
+  {
+    "component": "widget",
+    "api": [
+      "widget"
+    ],
+    "runtimeOnly": [
+      "imageloader",
+      "klog"
+    ]
+  },
+  {
+    "component": "imageloader",
+    "api": [
+      "imageloader-api"
+    ],
+    "runtimeOnly": [
+      "imageloader"
+    ]
+  },
+  {
+    "component": "crash",
+    "api": [
+      "crash-api",
+      "widget"
+    ],
+    "runtimeOnly": [
+      "crash",
+      "filetransfer",
+      "klog"
+    ]
+  },
+  {
+    "component": "filetransfer",
+    "api": [
+      "filetransfer-api"
+    ],
+    "runtimeOnly": [
+      "filetransfer",
+      "http",
+      "klog"
+    ]
+  },
+  {
+    "component": "platform",
+    "api": [
+      "platform"
+    ],
+    "runtimeOnly": [
+      "klog",
+      "http",
+      "crash"
+    ]
+  },
+  {
+    "component": "hiido",
+    "api": [
+      "hiido-api"
+    ],
+    "runtimeOnly": [
+      "hiido",
+      "klog"
+    ]
+  },
+  {
+    "component": "thirdparty",
+    "api": [
+      "thirdparty-api"
+    ],
+    "runtimeOnly": [
+      "thirdparty"
+    ]
+  },
+  {
+    "component": "feedback",
+    "api": [
+      "feedback-api"
+    ],
+    "runtimeOnly": [
+      "feedback"
+    ]
+  },
+  {
+    "component": "revenue",
+    "api": [
+      "revenue-api"
+    ],
+    "runtimeOnly": [
+      "revenue"
+    ]
+  },
+  {
+    "component": "share",
+    "api": [
+      "share-api"
+    ],
+    "runtimeOnly": [
+      "share"
+    ]
+  },
+  {
+    "component": "push",
+    "api": [
+      "push-api"
+    ],
+    "runtimeOnly": [
+      "push"
+    ]
+  },
+  {
+    "component": "channel",
+    "api": [
+      "channel-api"
+    ]
+  },
+  {
+    "component": "home",
+    "api": [
+      "home-api"
+    ]
+  },
+  {
+    "component": "components",
+    "api": [
+      "components"
+    ]
+  },
+  {
+    "component": "imagetransformation",
+    "api": [
+      "imagetransformation"
+    ]
+  },
+  {
+    "component": "home",
+    "api": [
+      "home-api"
+    ]
+  },
+  {
+    "component": "personalcenter",
+    "api": [
+      "personalcenter-api"
+    ]
+  },
+  {
+    "component": "live",
+    "api": [
+      "live-api"
+    ]
+  },
+  {
+    "component": "livekit",
+    "api": [
+      "livekit-api"
+    ],
+    "runtimeOnly": [
+      "livekit"
+    ]
+  },
+  {
+    "component": "authui",
+    "api": [
+      "authui-api"
+    ]
+  },
+  {
+    "component": "startbroadcast",
+    "api": [
+      "startbroadcast-api"
+    ],
+    "runtimeOnly": [
+      "startbroadcast"
+    ]
+  },
+  {
+    "component": "share-whatsapp",
+    "api": [
+      "share-whatsapp"
+    ]
+  },
+  {
+    "component": "share-weibo",
+    "api": [
+      "share-weibo"
+    ]
+  },
+  {
+    "component": "share-wechat",
+    "api": [
+      "share-wechat"
+    ]
+  },
+  {
+    "component": "share-vk",
+    "api": [
+      "share-vk"
+    ]
+  },
+  {
+    "component": "share-line",
+    "api": [
+      "share-line"
+    ]
+  },
+  {
+    "component": "share-instagram",
+    "api": [
+      "share-instagram"
+    ]
+  },
+  {
+    "component": "share-facebook",
+    "api": [
+      "share-facebook"
+    ]
+  },
+  {
+    "component": "share-copy",
+    "api": [
+      "share-copy"
+    ]
+  },
+  {
+    "component": "thirdparty-weibo",
+    "api": [
+      "thirdparty-weibo"
+    ]
+  },
+  {
+    "component": "thirdparty-wechat",
+    "api": [
+      "thirdparty-wechat"
+    ]
+  },
+  {
+    "component": "thirdparty-web",
+    "api": [
+      "thirdparty-web"
+    ]
+  },
+  {
+    "component": "thirdparty-vk",
+    "api": [
+      "thirdparty-vk"
+    ]
+  },
+  {
+    "component": "thirdparty-twitter",
+    "api": [
+      "thirdparty-twitter"
+    ]
+  },
+  {
+    "component": "thirdparty-twitch",
+    "api": [
+      "thirdparty-twitch"
+    ]
+  },
+  {
+    "component": "thirdparty-qq",
+    "api": [
+      "thirdparty-qq"
+    ]
+  },
+  {
+    "component": "thirdparty-line",
+    "api": [
+      "thirdparty-line"
+    ]
+  },
+  {
+    "component": "thirdparty-instagram",
+    "api": [
+      "thirdparty-instagram"
+    ]
+  },
+  {
+    "component": "thirdparty-google",
+    "api": [
+      "thirdparty-google"
+    ]
+  },
+  {
+    "component": "thirdparty-facebook",
+    "api": [
+      "thirdparty-facebook"
+    ]
+  },
+  {
+    "component": "share-twitter",
+    "api": [
+      "share-twitter"
+    ]
+  },
+  {
+    "component": "auth-qrcode",
+    "api": [
+      "auth-qrcode"
+    ]
+  },
+  {
+    "component": "share-qq",
+    "api": [
+      "share-qq"
+    ]
+  }
+]

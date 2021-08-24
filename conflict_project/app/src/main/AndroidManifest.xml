@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiangxue.conflict"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher">
+        <activity
+            android:name="com.xiangxue.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.xiangxue.others.a_conflictdemo.ConflictActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/conflict"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.xiangxue.others.a_now.HeadlineNewsActivity"
+            android:label="@string/viewpager_nested_horizontal"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.xiangxue.others.b_viewarchitecture.TouchEventDemoActivity"
+            android:label="@string/touch_event_demo"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name="com.xiangxue.others.willremove.intercept.outerintercept.OuterInterceptActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/outer_intercept"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.xiangxue.others.willremove.intercept.innerintercept.InnerInterceptActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/inner_intercept"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.xiangxue.others.e_conflictfixcases.webview.WebviewActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/inner_intercept"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.xiangxue.others.e_conflictfixcases.x5webview.X5WebviewActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/inner_intercept"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.xiangxue.others.d_innerouterconflict.outerinterceptlifthand.LiftHandActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/inner_intercept"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity
+            android:name="com.xiangxue.others.d_innerouterconflict.innerinterceptnolifthand.NoLiftHandActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/inner_intercept"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity android:name="com.xiangxue.others.willremove.testlist.activity.TwoScrollActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/two_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.xiangxue.others.c_scroll.case1.Case1Activity"
+            android:configChanges="screenLayout"
+            android:label="case1"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.xiangxue.others.c_scroll.case2.Case2Activity"
+            android:configChanges="screenLayout"
+            android:label="case2"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.xiangxue.others.c_scroll.case3.Case3Activity"
+            android:configChanges="screenLayout"
+            android:label="case3"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name="com.xiangxue.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name="com.xiangxue.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name="com.xiangxue.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name="com.xiangxue.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2"
+            android:configChanges="screenLayout"
+            android:label="@string/nested_scroll"
+            android:launchMode="standard"
+            android:theme="@style/Theme.AppCompat.Light" />
+    </application>
+</manifest>

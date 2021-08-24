@@ -1,0 +1,13 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo.yypm.com:8181/nexus/content/groups/public' }
+        maven { url uri('repo') }
+        google()
+    }
+    dependencies {
+        classpath "tv.athena:api-gradle-plugin:${architecture_version}"
+    }
+}
+apply plugin: 'architecture-init'
+
+include ':app', ':acstyle'

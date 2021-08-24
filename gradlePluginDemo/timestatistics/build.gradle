@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'java-gradle-plugin'
+
+gradlePlugin {
+    plugins {
+        timeplugin { // 名字随意取
+            id = 'timer.plugin'
+            implementationClass = 'timer.plugin.TimePlugin'
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.2.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('/Users/base_file/repo')) //仓库的路径，此处是项目根目录下的 repo 的文件夹
+        pom.groupId = 'timer.plugin'  //groupId ，自行定义，一般是包名
+        pom.artifactId = 'timeplugin' //artifactId ，自行定义
+        pom.version = '1.0.0' //version 版本号
+    }
+}

@@ -1,0 +1,32 @@
+<resources>
+  <string name="ResendFormats"></string>
+  <string name="send_otp">发送验证码</string>
+  <string name="Sign_Up_Successfully">注册成功</string>
+  <string name="Login_successfully">登录成功</string>
+  <string name="timetable"></string>
+  <string name="download_file_invalid"></string>
+  <string name="zoom_error_livelinkInvalid"></string>
+  <string name="not_login_reminder_chatlist"></string>
+  <string name="not_login_reminder_timatable"></string>
+  <string name="not_login_reminder_batch"></string>
+  <string name="not_login_reminder_course"></string>
+  <string name="check_network_toast"></string>
+  <string name="check_network_warning"></string>
+  <string name="check_network_describe"></string>
+  <string name="Attendance_Status"></string>
+  <string name="leave_early"></string>
+  <string name="check_network_state"></string>
+  <string name="Network_Diagnostics"></string>
+  <string name="live_end"></string>
+  <string name="report_problem_question_content"></string>
+  <string name="report_problem_question_title"></string>
+  <string name="report_problem_describe"></string>
+  <string name="contact_via_whatsapp_describe"></string>
+  <string name="leave_message_describe"></string>
+  <string name="faq_describe"></string>
+  <string name="Help_Support"></string>
+  <string name="Report_a_Problem"></string>
+  <string name="timetable_Nodata_alertString"></string>
+  <string name="deadline"></string>
+  <string name="router_uri_cannot_open"></string>
+</resources>

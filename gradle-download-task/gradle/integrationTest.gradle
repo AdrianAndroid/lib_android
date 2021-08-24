@@ -1,0 +1,200 @@
+buildscript {
+    dependencies {
+        classpath 'org.mortbay.jetty:jetty-embedded:6.1.25'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+import org.mortbay.jetty.Handler
+import org.mortbay.jetty.Server
+import org.mortbay.jetty.handler.DefaultHandler
+import org.mortbay.jetty.handler.HandlerList
+import org.mortbay.jetty.handler.ResourceHandler
+import org.mortbay.resource.Resource
+import org.gradle.util.GradleVersion
+
+task integrationTest {
+    doLast {
+        def testStr = "This is a test"
+        def testStr2 = "This is another test"
+
+        def versionsToTest = [
+            '2.0', '2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '2.9',
+            '2.10', '2.11', '2.12', '2.13', '2.14.1',
+            '3.0', '3.1', '3.2.1', '3.3', '3.4.1', '3.5.1',
+            '4.0.2', '4.1', '4.2.1', '4.3.1',
+            '4.4.1', '4.5.1', '4.6', '4.7', '4.8.1', '4.9', '4.10.3',
+            '5.0', '5.1', '5.1.1', '5.2', '5.2.1', '5.3', '5.3.1',
+            '5.4', '5.4.1', '5.5', '5.5.1',
+            '5.6', '5.6.1', '5.6.2', '5.6.3', '5.6.4',
+            '6.0', '6.0.1', '6.1', '6.1.1', '6.2', '6.2.1', '6.2.2',
+            '6.3', '6.4', '6.4.1', '6.5', '6.5.1',
+            '6.6', '6.6.1', '6.7', '6.7.1', '6.8', '6.8.1', '6.8.2', '6.8.3', '6.9',
+            '7.0', '7.0.1', '7.0.2', '7.1', '7.1.1'
+        ]
+
+        //handle regex to only include certain gradle versions
+        if (project.hasProperty('integrationTestIncludes')) {
+            versionsToTest = versionsToTest.findAll { it =~ project.integrationTestIncludes }
+        }
+
+        //run server on any free port
+        def server = new Server(0)
+
+        //serve resources from temporary folder
+        def resourceHandler = new ResourceHandler()
+        resourceHandler.setBaseResource(Resource.newResource(
+                temporaryDir.getAbsolutePath()))
+
+        def handlers = new HandlerList()
+        handlers.setHandlers([ resourceHandler, new DefaultHandler() ] as Handler[])
+        server.setHandler(handlers)
+
+        server.start()
+        def serverPort = server.getConnectors()[0].getLocalPort()
+
+        def testFile = null
+        def testFile2 = null
+        try {
+            //write simple test files to temporary directory
+            testFile = new File(temporaryDir, "test.txt")
+            testFile2 = new File(temporaryDir, "test2.txt")
+            testFile.write(testStr)
+            //write testStr into testFile2 but later check that it hasn't been overwritten
+            testFile2.write(testStr)
+
+            def testFileSrc = "http://localhost:" + serverPort + "/test.txt"
+            def testFile2Src = "http://localhost:" + serverPort + "/test2.txt"
+
+            //create Gradle test project
+            def testGradle = { version ->
+                println("Testing Gradle version ${version} ...")
+
+                def testProjectDir = new File(temporaryDir, version)
+
+                if (testProjectDir.exists()) {
+                    project.delete(testProjectDir)
+                }
+
+                testProjectDir.mkdirs()
+                def testProjectBuildScript = new File(testProjectDir, "build.gradle")
+                testProjectBuildScript.write("""
+                    buildscript {
+                        dependencies {
+                            classpath '${project.group}:${project.name}:${project.version}'
+                        }
+
+                        repositories {
+                            mavenLocal()
+                            mavenCentral()
+                        }
+                    }
+
+                    apply plugin: 'de.undercouch.download'
+
+                    task downloadFile(type: Download) {
+                        src '${testFileSrc}'
+                        dest buildDir
+                    }
+
+                    task downloadFile2(type: Download) {
+                        src '${testFile2Src}'
+                        dest buildDir
+                        overwrite false
+                        onlyIfModified true
+                    }
+
+                    task verifyFile(type: Verify, dependsOn: downloadFile) {
+                        src new File(buildDir, '${testFile.name}')
+                        algorithm 'MD5'
+                        checksum 'ce114e4501d2f4e2dcea3e17b546f339'
+                    }
+                """)
+
+                // write empty settings.gradle for Gradle 5.x and higher
+                new File(testProjectDir, "settings.gradle").write("")
+
+                //define destination test files
+                def downloadedTestFile = new File(testProjectDir, 'build/test.txt')
+                def downloadedTestFile2 = new File(testProjectDir, 'build/test2.txt')
+
+                //create second destination test file to simulate onlyIfModified = true and overwrite = false
+                def createTestFile2 = {
+                    downloadedTestFile2.getParentFile().mkdirs()
+                    downloadedTestFile2.write(testStr2)
+                }
+                createTestFile2()
+
+                //execute Gradle to create a Gradle wrapper for the test project
+                def gradlew = [ new File(rootDir, 'gradlew').getAbsolutePath() ]
+                if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                    gradlew = [ 'cmd', '/c', new File(rootDir, 'gradlew.bat').getAbsolutePath() ]
+                }
+                exec {
+                    workingDir testProjectDir
+                    commandLine gradlew + ['--no-daemon', 'wrapper', '--gradle-version', version]
+                }
+
+                //execute test project
+                gradlew = [ new File(testProjectDir, 'gradlew').getAbsolutePath() ]
+                if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                    gradlew = [ 'cmd', '/c', new File(testProjectDir, 'gradlew.bat').getAbsolutePath() ]
+                }
+                exec {
+                    workingDir testProjectDir
+                    commandLine gradlew + ['--version']
+                }
+                def execArgs = ['--no-daemon', 'downloadFile', 'downloadFile2', 'verifyFile']
+                exec {
+                    workingDir testProjectDir
+                    commandLine gradlew + execArgs
+                }
+                if (GradleVersion.version(version).baseVersion >= GradleVersion.version("6.6")) {
+                    // Store the configuration cache
+                    project.delete(new File(testProjectDir, 'build'))
+                    createTestFile2()
+                    def execArgsCache = [ '--configuration-cache' ] + execArgs
+                    exec {
+                        workingDir testProjectDir
+                        commandLine gradlew + execArgsCache
+                    }
+                    // Reuse the configuration cache
+                    project.delete(new File(testProjectDir, 'build'))
+                    createTestFile2()
+                    exec {
+                        workingDir testProjectDir
+                        commandLine gradlew + execArgsCache
+                    }
+                }
+
+                //check test files
+                if (!downloadedTestFile.getText().equals(testStr)) {
+                    throw new IllegalStateException("Downloaded file does not match test file contents (test.txt)")
+                }
+                if (!downloadedTestFile2.getText().equals(testStr2)) {
+                    throw new IllegalStateException("test file has been overwritten (test2.txt)")
+                }
+
+                project.delete(testProjectDir)
+            }
+
+            for (vtt in versionsToTest) {
+                testGradle(vtt)
+            }
+        } finally {
+            if (testFile != null) {
+                testFile.delete()
+            }
+            if (testFile2 != null) {
+                testFile2.delete()
+            }
+            server.stop()
+        }
+    }
+}
+
+check.dependsOn integrationTest

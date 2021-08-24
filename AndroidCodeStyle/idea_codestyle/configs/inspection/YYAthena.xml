@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inspections is_locked="false" version="1.0">
+    <option name="myName" value="YYAthena" />
+    <inspection_tool class="FallthruInSwitchStatement" enabled="true" enabled_by_default="true" level="ERROR" />
+    <inspection_tool class="Reformat" enabled="true" enabled_by_default="true" level="ERROR" />
+    <inspection_tool class="UnnecessarySemicolon" enabled="true" enabled_by_default="true" level="ERROR" />
+</inspections>
+

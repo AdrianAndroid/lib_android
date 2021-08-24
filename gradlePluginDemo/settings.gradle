@@ -1,0 +1,4 @@
+include ':annotationTest'
+include ':timestatistics'
+include ':app'
+rootProject.name = "My Application"

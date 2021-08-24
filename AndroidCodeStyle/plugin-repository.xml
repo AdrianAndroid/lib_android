@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin-repository>
+    <category>
+        <idea-plugin>
+            <version>0.1.5</version>
+        </idea-plugin>
+    </category>
+</plugin-repository>

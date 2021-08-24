@@ -1,0 +1,29 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+  repositories {
+    google()
+    jcenter()
+    maven {
+      allowInsecureProtocol = true
+      url 'http://repo.duowan.com:8181/nexus/content/groups/public' }
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:7.0.0'
+
+    // TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+//    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
+//    classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    mavenCentral()
+    jcenter()
+    maven {
+      allowInsecureProtocol = true
+      url 'http://repo.duowan.com:8181/nexus/content/groups/public' }
+  }
+}

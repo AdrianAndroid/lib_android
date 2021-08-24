@@ -1,0 +1,32 @@
+<resources>
+  <string name="ResendFormats">Resend OTP（%lds）</string>
+  <string namoe="send_otp">Send OTP</string>
+  <string name="Sign_Up_Successfully">Sign Up Successfully</string>
+  <string name="Login_successfully">Login successfully</string>
+  <string name="timetable">Timatable</string>
+  <string name="download_file_invalid">This content is no longer available to be watched and will be cleared.</string>
+  <string name="zoom_error_livelinkInvalid">This live link is not valid. Please contact the institution to update.</string>
+  <string name="not_login_reminder_chatlist">Login to chat with your teacher</string>
+  <string name="not_login_reminder_timatable">Login to see your timetable</string>
+  <string name="not_login_reminder_batch">Login to see your batch</string>
+  <string name="not_login_reminder_course">Login to see your courses</string>
+  <string name="check_network_toast">Diagnostics complete, log has been generated.</string>
+  <string name="check_network_warning">Please do not quit this page or the APP during the process.</string>
+  <string name="check_network_describe">We are currently checking your network status and generating a log, which would help our developers to better solve your problem. </string>
+  <string name="Attendance_Status">Attendance Status:</string>
+  <string name="leave_early">Leave Early</string>
+  <string name="check_network_state">Checking network status...</string>
+  <string name="Network_Diagnostics">Network Diagnostics</string>
+  <string name="live_end">Live bradcast has ended</string>
+  <string name="report_problem_question_content">Please describe the problems you encountered.</string>
+  <string name="report_problem_question_title">What problems have you encountered?</string>
+  <string name="report_problem_describe">You can use this feature to report a bug/issue to the developers.	</string>
+  <string name="contact_via_whatsapp_describe">When you encounter a problem, you can communicate with the staff from the institution via WhatsApp</string>
+  <string name="leave_message_describe">When you encounter a problem, you can leave a message to the institution. The institution will contact you later.</string>
+  <string name="faq_describe">You can find answers to the most frequently asked questions here.</string>
+  <string name="Help_Support">Help &amp; Support</string>
+  <string name="Report_a_Problem">Report a Problem</string>
+  <string name="timetable_Nodata_alertString">Looks like you don&amp;apos;t have any events!</string>
+  <string name="deadline">Deadline：%s</string>
+  <string name="router_uri_cannot_open">This function is not available on APP. Please move to the pc website for operation.</string>
+</resources>

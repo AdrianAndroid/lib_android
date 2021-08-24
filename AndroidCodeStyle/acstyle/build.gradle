@@ -1,0 +1,94 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'maven'
+apply plugin: 'architecture-publish'
+
+android {
+    compileSdkVersion "${compile_sdk_version}" as Integer
+    buildToolsVersion "${build_tools_version}"
+
+    defaultConfig {
+        minSdkVersion "${min_sdk_version}" as Integer
+        targetSdkVersion "${target_sdk_version}" as Integer
+        versionCode Integer.valueOf(System.env.BUILD_NUMBER ?: "1")
+        versionName "${version}"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            java {
+//                java.srcDirs = ['src/main/java']
+
+                include '**/*.java'
+                include '**/*.kt'
+            }
+
+
+        }
+    }
+
+}
+
+/**
+ * architecture-publish发布插件配置extension 如果想将基础库打包jar 请将publishApi，publishImpl 设置为true
+ */
+apiPublish {
+    /**
+     * groupId
+     */
+    groupId = "${publish_groupId}"
+    /**
+     * artifactId
+     */
+    artifactId = "${name}"
+
+    publishApi = true
+
+}
+
+/**
+ * athenaApi 依赖对应module的api
+ *      例如: athenaApi project(":kLog")
+ *      表示module会依赖KLog-api module
+ * athenaApiCompile 当前module对应的api module需要依赖的库
+ *      例如: athenaApiCompile "tv.athena:KLog:1.0.0-snapshot"
+ *      表示这个module对应的api module也会依赖KLog这个库
+ *
+ */
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    /** api和hide都需要依赖 **/
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    /** 中间件间组件依赖 **/
+    kapt "tv.athena:compiler:$architecture_version"
+    implementation "tv.athena:klog-api:$architecture_version"
+    implementation "tv.athena:annotation:$architecture_version"
+    implementation "tv.athena:core:$architecture_version"
+}

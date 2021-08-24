@@ -1,0 +1,3 @@
+// Baseline format: 1.0
+RemovedInterface: androidx.compose.animation.core.InfiniteAnimationPolicy:
+    Removed class androidx.compose.animation.core.InfiniteAnimationPolicy

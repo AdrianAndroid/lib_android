@@ -1,0 +1,21 @@
+/**
+ * architecture-api 参数配置
+ */
+riki {
+
+    /**
+     * architecture中间件版本
+     */
+    architectureVersion = "${architecture_version}"
+
+    /**
+     * 是否支持protobuf，支持则需要配置protobuf
+     */
+    enableProtobuf = false
+    /**
+     * 是否使用 room 数据库
+     * */
+    enableRoom = false
+
+
+}

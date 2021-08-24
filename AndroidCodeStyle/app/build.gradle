@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'architecture-inject'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion "${compile_sdk_version}" as Integer
+    buildToolsVersion "${build_tools_version}"
+
+    defaultConfig {
+        applicationId "tv.athena.code.AndroidCodeStyle"
+        minSdkVersion "${min_sdk_version}" as Integer
+        targetSdkVersion "${target_sdk_version}" as Integer
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'lib/armeabi/*.so'
+        exclude 'lib/arm64-v8a/*.so'
+        exclude 'lib/x86/*.so'
+        exclude 'lib/x86_64/*.so'
+        exclude 'lib/mips/*.so'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+appInject {
+    applicationName = "tv.athena.code.AndroidCodeStyle.MyApplication"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "tv.athena:imageloader-api:$architecture_version"
+    kapt "tv.athena:compiler:$architecture_version"
+    /** 应用需要依赖platform才能使用中间件(包括基础utils,annotation,core,widget，以及 klog http和crash) **/
+    implementation "tv.athena:platform:$architecture_version"
+
+    implementation project(':acstyle')
+
+    /**
+     * http 扩展库
+     */
+    implementation "tv.athena:httpadapter-rxjava2:$architecture_version"
+
+    runtimeOnly "tv.athena:imageloader:$architecture_version"
+    /**runtime 中间件api对应具体的impl**/
+    runtimeOnly "tv.athena:klog:$architecture_version"
+    runtimeOnly "tv.athena:http:$architecture_version"
+    runtimeOnly "tv.athena:crash:$architecture_version"
+}

@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion COMPILE_SDK_VERSION as int
+
+  defaultConfig {
+    minSdkVersion MIN_SDK_VERSION as int
+    targetSdkVersion TARGET_SDK_VERSION as int
+  }
+}
+
+
+dependencies {
+  testImplementation "junit:junit:4.13"
+  testImplementation "org.robolectric:robolectric:4.3.1"
+}
+
+ext {
+  bintrayRepo = 'maven'
+  bintrayName = 'richeditor-android'
+  bintrayUserOrg = 'wasabeef'
+  publishedGroupId = 'jp.wasabeef'
+  libraryName = 'richeditor-android'
+  artifact = 'richeditor-android'
+  libraryDescription = 'RichEditor for Android is a beautiful Rich Text WYSIWYG Editor'
+  siteUrl = 'https://github.com/richeditor-android'
+  gitUrl = 'https://github.com/richeditor-android.git'
+  issueUrl = 'https://github.com/richeditor-android/issues'
+  libraryVersion = VERSION_NAME
+  developerId = 'wasabeef'
+  developerName = 'Wasabeef'
+  developerEmail = 'dadadada.chop@gmail.com'
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
+
+// TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
+// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
+
+apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
